@@ -1,0 +1,12 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set your base folder
+RewriteBase /music_industry/
+
+# If the requested file or directory exists, skip rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route all requests to index.php
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
