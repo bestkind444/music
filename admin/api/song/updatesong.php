@@ -1,10 +1,33 @@
 <?php
-require_once '../config.php';
+
+include_once "../../../classes/DBConnection.php";
+// include_once "../../../classes/Music.php";
+
+$db = new DBConnection();
+$conn = $db->conn;
+
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+$title = $_POST['title'];
+$duration = $_POST['duration'];
+$created_at = $_POST['created_at'];
+$song_identifier = $_POST['song_identifier'];
+$id = $_POST['id'];
+
+if (!empty($title) && !empty($duration) && !empty($created_at) && !empty($song_identifier)) {
+
+  $query = $conn->query("");
+
+ 
+}
 
 
 
 
-// update album's total duration
+
+
+}
+
+
 $query = $con->prepare("UPDATE `album`
                         SET `total_duration` = ?
                         WHERE `album_id` = ?");

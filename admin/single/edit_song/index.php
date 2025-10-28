@@ -2418,7 +2418,7 @@ $all = $artists_song->fetch_assoc();
                             <div class="form-group mb-4">
                                 <label>music Type</label>
                                 <input type="text" value="<?= htmlspecialchars($all['song_identifier']) ?>" name="song_identifier" class="form-control" id=""
-                                    placeholder="Title Name" required="" autocomplete="off">
+                                    placeholder="song_identifier" required="" autocomplete="off">
                             </div>
                         </div>
 
