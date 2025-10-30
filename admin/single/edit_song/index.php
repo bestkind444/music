@@ -2383,7 +2383,7 @@ $all = $artists_song->fetch_assoc();
                     </div>
                 </div>
 
-                <form method="post" id="form" enctype="multipart/form-data">
+                <form data-data="<?= htmlspecialchars($all['id']) ?>" method="post" id="form" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
@@ -2443,6 +2443,7 @@ $all = $artists_song->fetch_assoc();
 
 
                         </div> -->
+                        
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <button name="register" type="submit" class="btn btn-primary mt-3">Edit Song</button>
@@ -2462,16 +2463,18 @@ $all = $artists_song->fetch_assoc();
                     const form = document.getElementById("form");
                     form.addEventListener("submit", async (e) => {
                         e.preventDefault();
+
                         try {
+                        const data_id = e.target.dataset.data;
                             const formData = new FormData(e.target);
-                            const response = await fetch("../api/song/addsong.php", {
+                            formData.append("id", data_id);
+                            const response = await fetch("../../api/song/updatesong.php", {
                                 method: 'POST',
                                 body: formData
-
-                            })
+                            });
 
                             if (!response.ok) {
-                                throw new Error("failed to insert product " + response.statusText);
+                                throw new Error("failed to upload product " + response.statusText);
                             }
 
                             const data = await response.json();

@@ -2385,13 +2385,12 @@ $genres = $conn->query("SELECT id, name FROM genres");
                         <div class="col-md-6">
                             <div class="form-group mb-4">
                                 <label for="">Title</label>
-                                <input type="text" value="" name="title" class="form-control" id=""
-                                    placeholder="Title Name" required="" autocomplete="off">
+                                <input type="text" name="title" class="form-control" placeholder="Title Name" required autocomplete="off">
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-
                                 <label>Artist</label>
                                 <select class="form-control" name="artist" required>
                                     <option value="">Select artist</option>
@@ -2401,10 +2400,6 @@ $genres = $conn->query("SELECT id, name FROM genres");
                                 </select>
                             </div>
                         </div>
-
-
-
-
 
                         <div class="col-md-6">
                             <div class="form-group mb-4">
@@ -2418,24 +2413,44 @@ $genres = $conn->query("SELECT id, name FROM genres");
                             </div>
                         </div>
 
-
-
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label for="">Album</label>
-                                <input type="file" value="" name="album" class="form-control"
-                                    placeholder="inser song" required="" autocomplete="off">
-                            </div>
-
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <button style="margin-bottom: 10px;" name="register" type="submit" class="btn btn-primary mt-3">Upload Album</button>
-
+                                <label>Album Artwork</label>
+                                <input type="file" name="album" class="form-control" required>
                             </div>
                         </div>
+
+                        <!-- TEAM MEMBERS SECTION -->
+                        <div class="col-md-12">
+                            <label>Album Team Members</label>
+                            <div id="team-section">
+                                <div class="team-member mb-3">
+                                    <input type="text" name="member_name[]" class="form-control mb-2" placeholder="Member Name" required>
+                                    <input type="file" name="member_image[]" class="form-control" accept="image/*" required>
+                                </div>
+                            </div>
+                            <button type="button" id="add-member" class="btn btn-sm btn-secondary mt-2">+ Add Another Member</button>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <button name="register" type="submit" class="btn btn-primary mt-4">Upload Album</button>
+                        </div>
+                    </div>
                 </form>
+
+                <script>
+                    document.getElementById("add-member").addEventListener("click", function() {
+                        const section = document.getElementById("team-section");
+                        const newMember = document.createElement("div");
+                        newMember.classList.add("team-member", "mb-3");
+                        newMember.innerHTML = `
+      <input type="text" name="member_name[]" class="form-control mb-2" placeholder="Member Name" required>
+      <input type="file" name="member_image[]" class="form-control" accept="image/*" required>
+    `;
+                        section.appendChild(newMember);
+                    });
+                </script>
+
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-6">
                         <div class="table-responsive mb-4 mt-4">
@@ -2492,7 +2507,7 @@ $genres = $conn->query("SELECT id, name FROM genres");
                                                 $db = new DBConnection();
                                                 $conn = $db->conn;
                                                 $songs = new Music();
-                                                $all_album = $songs->getAllAlbum();
+                                                $all_album = $songs->getAllAlbumForAdmin();
                                                 $count = 0;
 
                                                 foreach ($all_album as $album) {
@@ -2584,34 +2599,34 @@ $genres = $conn->query("SELECT id, name FROM genres");
 
                     })
 
-                      //Delete
-                    document.querySelectorAll(".del-btn").forEach(btn =>{
-                        btn.addEventListener("click", async (e) =>{
-                           e.preventDefault();
-                           try {
-                               
-                               const del_id = e.target.dataset.delete;
-                            const response = await fetch("../api/album/deletealbum.php?delete_id=" + encodeURIComponent(del_id))
+                    //Delete
+                    document.querySelectorAll(".del-btn").forEach(btn => {
+                        btn.addEventListener("click", async (e) => {
+                            e.preventDefault();
+                            try {
 
-                            if (!response.ok) {
-                                throw new Error("failed to insert product " + response.statusText);
+                                const del_id = e.target.dataset.delete;
+                                const response = await fetch("../api/album/deletealbum.php?delete_id=" + encodeURIComponent(del_id))
+
+                                if (!response.ok) {
+                                    throw new Error("failed to insert product " + response.statusText);
+                                }
+
+                                const data = await response.json();
+                                if (data.status === "success") {
+                                    sweatAlert("Tips", "success", data.message);
+                                } else {
+                                    sweatAlert("Tips", "error", data.message);
+                                }
+                                setTimeout(() => {
+                                    window.location.reload();
+                                }, 1600);
+
+
+                            } catch (error) {
+                                console.log(error);
+                                sweatAlert("Tips", "error", error.message)
                             }
-
-                            const data = await response.json();
-                            if (data.status === "success") {
-                                sweatAlert("Tips", "success", data.message);
-                            } else {
-                                sweatAlert("Tips", "error", data.message);
-                            }
-                            setTimeout(() => {
-                                window.location.reload();
-                            }, 1600);
-
-
-                        } catch (error) {
-                            console.log(error);
-                            sweatAlert("Tips", "error", error.message)
-                        }
                         })
                     })
                 </script>

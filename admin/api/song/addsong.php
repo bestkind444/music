@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $artist = $_POST['artist'];
     $album = $_POST['album'];
     $genre = $_POST['genre'];
-    $albumOrder = $_POST['identity'];
+    $identity = $_POST['identity'];
 
     $uploadDir = "../../../assets/music/";
     $fileName = basename($_FILES["song"]["name"]);
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $dbtarget = "assets/music/" . $fileName;
     // Validate and upload
     if (move_uploaded_file($_FILES["song"]["tmp_name"], $targetFile)) {
-        $songs->insertSong($title, $artist, $album, $genre, $dbtarget, $albumOrder);
+        $songs->insertSong($title, $artist, $album, $genre, $dbtarget, $identity);
     } else {
         http_response_code(400);
         exit(["status" => "error", "message" => "failed to upload file"]);

@@ -93,41 +93,41 @@
           <div class="row">
             <div class="col-md-12">
               <div class="wm-simple-facny-title">
-                <h2>Recent Releases</h2>
+                <h2>Album- click see All to see all our Album</h2>
               </div>
               <div class="wm-album wm-recent-releases-album">
                 <ul class="row">
                   <li class="col-md-4">
                     <figure>
-                      <a href="album-single-post.html"><img
+                      <a href="./abulm/"><img
                           src="./asset/extra-images/album-recent-1.jpg"
                           alt="" /></a>
                       <figcaption>
                         <div class="wm-album-caption">
                           <h2>
-                            <a href="album-single-post.html">Acoustic, Music, Soul</a>
+                            <a href="./abulm/">Acoustic, Music, Soul</a>
                           </h2>
                           <ul>
                             <li><span>Available on:</span></li>
                             <li>
                               <a
-                                href="https://www.amazon.com/"
+                                href="./abulm/"
                                 class="flaticon-icon-2406"></a>
                             </li>
                             <li>
                               <a
-                                href="http://www.apple.com/"
+                                href="./abulm/"
                                 class="flaticon-technology-2"></a>
                             </li>
                             <li>
                               <a
-                                href="https://soundcloud.com/"
+                                href="./abulm/"
                                 class="flaticon-shape"></a>
                             </li>
                           </ul>
                           <div class="clearfix"></div>
                           <a
-                            href="album-single-post.html"
+                            href="./abulm/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-tool"></i></a>
                           <a
                             href="album-single-post.html"
@@ -136,9 +136,9 @@
                       </figcaption>
                     </figure>
                     <div class="wm-recent-releases-text">
-                      <time datetime="2008-02-14 20:00">Date: 26/01/2016</time>
+                      <time datetime="2008-02-14 20:00"></time>
                       <h2>
-                        <a href="album-single-post.html">Album: You Know Who You Are</a>
+                        <a href="./abulm/"> Click see all to get All Album</a>
                       </h2>
                     </div>
                   </li>
@@ -150,92 +150,92 @@
                       <figcaption>
                         <div class="wm-album-caption">
                           <h2>
-                            <a href="album-single-post.html">Acoustic, Music, Soul</a>
+                            <a href="./abulm/">Acoustic, Music, Soul</a>
                           </h2>
                           <ul>
                             <li><span>Available on:</span></li>
                             <li>
                               <a
-                                href="https://www.amazon.com/"
+                                href="./abulm/"
                                 class="flaticon-icon-2406"></a>
                             </li>
                             <li>
                               <a
-                                href="http://www.apple.com/"
+                                href="./abulm/"
                                 class="flaticon-technology-2"></a>
                             </li>
                             <li>
                               <a
-                                href="https://soundcloud.com/"
+                                href="./abulm/"
                                 class="flaticon-shape"></a>
                             </li>
                           </ul>
                           <div class="clearfix"></div>
                           <a
-                            href="album-single-post.html"
+                            href="./abulm/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-tool"></i></a>
                           <a
-                            href="album-single-post.html"
+                            href="./abulm/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-link"></i></a>
                         </div>
                       </figcaption>
                     </figure>
                     <div class="wm-recent-releases-text">
-                      <time datetime="2008-02-14 20:00">Date: 12/02/2016</time>
+                      <time datetime="2008-02-14 20:00"></time>
                       <h2>
-                        <a href="album-single-post.html">Album: Long Way Home</a>
+                        <a href="./abulm/"> Click see all to get All Album</a>
                       </h2>
                     </div>
                   </li>
                   <li class="col-md-4">
                     <figure>
-                      <a href="album-single-post.html"><img
+                      <a href="./abulm/"><img
                           src="./asset/extra-images/album-recent-3.jpg"
                           alt="" /></a>
                       <figcaption>
                         <div class="wm-album-caption">
                           <h2>
-                            <a href="album-single-post.html">Acoustic, Music, Soul</a>
+                            <a href="./abulm/">Acoustic, Music, Soul</a>
                           </h2>
                           <ul>
                             <li><span>Available on:</span></li>
                             <li>
                               <a
-                                href="https://www.amazon.com/"
+                                href="./abulm/"
                                 class="flaticon-icon-2406"></a>
                             </li>
                             <li>
                               <a
-                                href="http://www.apple.com/"
+                                href="./abulm/"
                                 class="flaticon-technology-2"></a>
                             </li>
                             <li>
                               <a
-                                href="https://soundcloud.com/"
+                                href="./abulm/"
                                 class="flaticon-shape"></a>
                             </li>
                           </ul>
                           <div class="clearfix"></div>
                           <a
-                            href="album-single-post.html"
+                            href="./abulm/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-tool"></i></a>
                           <a
-                            href="album-single-post.html"
+                            href="./abulm/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-link"></i></a>
                         </div>
                       </figcaption>
                     </figure>
                     <div class="wm-recent-releases-text">
-                      <time datetime="2008-02-14 20:00">Date: 16/03/2016</time>
+                      <time datetime="2008-02-14 20:00"></time>
                       <h2>
-                        <a href="album-single-post.html">Album: You're Doomed. Be Nice.</a>
+                        <a href="./abulm/"> Click see all to get All Album.</a>
                       </h2>
                     </div>
                   </li>
                 </ul>
               </div>
               <div class="wm-seeall-btn">
-                <a href="album-single-post.html" class="wm-bgcolor">See All</a>
+                <a href="abulm/" class="wm-bgcolor">See All</a>
               </div>
             </div>
           </div>
@@ -261,6 +261,11 @@
           filter: none !important;
           max-height: 220px;
      
+
+        }
+        img{
+            opacity: 1 !important;
+          filter: none !important;
         }
 
         @media(max-width: 992px) {
@@ -414,57 +419,7 @@
     <!--// Footer \\-->
     <footer id="wm-footer" class="footer-two">
       <!--// Footer Bottom Section \\-->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="wm-footer-bottom-section">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="wm-newslatter-section">
-                    <div class="wm-footer-widget-title">
-                      <h2>subscribe to our newsletter:</h2>
-                    </div>
-                    <form>
-                      <input
-                        type="text"
-                        value="Your Email Address"
-                        onblur="if(this.value == '') { this.value ='Your Email Address'; }"
-                        onfocus="if(this.value =='Your Email Address') { this.value = ''; }" />
-                      <input
-                        type="submit"
-                        value="Subscribe Now"
-                        class="wm-color wm-bordercolor" />
-                    </form>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="wm-footer-social-media">
-                    <ul class="wm-footer-icons">
-                      <li>
-                        <a href="https://mobile.twitter.com/"><i class="flaticon-social-2"></i> twitter</a>
-                      </li>
-                      <li>
-                        <a href="https://www.facebook.com/"><i class="flaticon-social-1"></i> facebook</a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://www.spotify.com/int/why-not-available/"><i class="flaticon-social-3"></i> spotify</a>
-                      </li>
-                      <li>
-                        <a href="http://musicbeats.net/"><i class="flaticon-shape"></i> Musicbeat</a>
-                      </li>
-                    </ul>
-                    <p>
-                      © 2016, All Right <a href="index.html">Reserved</a> - by
-                      <a href="index.html">WebMarce</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php  include_once "./include/footer.php"   ?>
       <!--// Footer Bottom Section \\-->
 
       <style>
@@ -566,7 +521,7 @@
     </footer>
 
 
-    >
+    
 
 
 

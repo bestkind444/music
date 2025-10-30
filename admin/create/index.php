@@ -2436,10 +2436,11 @@ $genres = $conn->query("SELECT id, name FROM genres");
                             <div class="form-group mb-4">
                                 <label for="">Album Order</label>
                                  <select class="form-control"  name="identity" id="">
-                                 <option value="neutral">Neutral</option>
+                                 <option value="neutral">neutral</option>
                                  <option value="highlife">highlife</option>
-                                 <option value="gospel">Gospel</option>
+                                 <option value="gospel">gospel</option>
                                  <option value="djmix">djmix</option>
+                                 <option value="djmix">naija</option>
                                  </select>
                                   
                             </div>

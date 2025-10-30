@@ -93,9 +93,9 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/music_industry/app/">Home</a></li>
-                <li><a href="/music_industry/app/event/">Events</a></li>
+                <!-- <li><a href="/music_industry/app/event/">Events</a></li> -->
                 <li><a href="/music_industry/app/abulm/">Albums</a></li>
-                <li><a href="/music_industry/app/about/">About us</a></li>
+                <li><a href="/music_industry/app/contact/">Contact us</a></li>
                 <li><a href="/music_industry/app/artiste/">All Artist</a></li>
 
                 <li>

@@ -80,8 +80,6 @@ class Music extends DBConnection
         }
 
         return $songs;
-          
-       
     }
 
 
@@ -100,7 +98,7 @@ class Music extends DBConnection
             JOIN albums ON Songs.album = albums.id
             JOIN artists ON Songs.artist = artists.id
             JOIN genres ON Songs.genre = genres.id
-            WHERE Songs.id = $id OR songs.artise = $id
+            WHERE Songs.id = $id 
             ";
 
         $result = $this->conn->query($sql);
@@ -184,7 +182,7 @@ class Music extends DBConnection
         require_once __DIR__ . '/../vendor/autoload.php';
 
         $getID3 = new getID3;
-        $realPath = realpath($path);
+        $realPath = realpath("../../../" . $path);
         $fileInfo = $getID3->analyze($realPath);
 
         $formattedDuration = isset($fileInfo['playtime_string']) ? $fileInfo['playtime_string'] : "00:00";
@@ -192,7 +190,7 @@ class Music extends DBConnection
         $sql = "INSERT INTO Songs (title, artist, album, genre, path, duration, song_identifier, plays)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("siisssii", $title, $artist, $album, $genre, $path, $formattedDuration, $song_identifier, $plays);
+        $stmt->bind_param("siissssi", $title, $artist, $album, $genre, $path, $formattedDuration, $song_identifier, $plays);
 
         if ($stmt->execute()) {
             $stmt->close();
@@ -205,22 +203,21 @@ class Music extends DBConnection
     }
 
 
-    // HIGHLIFE  //highlife MUSIC SECTION
-    
+    // HIGHLIFE  //HIGHLIFE MUSIC SECTION
     public function getSongsByIdentifier($identifier, $page = 1, $limit = 5)
-{
-    $offset = ($page - 1) * $limit;
-    $identifier = $this->conn->real_escape_string($identifier);
+    {
+        $offset = ($page - 1) * $limit;
+        $identifier = $this->conn->real_escape_string($identifier);
 
-    //total songs by identifier
-    $countSql = "SELECT COUNT(*) AS total FROM Songs WHERE song_identifier = '$identifier'";
-    $countResult = $this->conn->query($countSql);
-    $total = ($countResult && $countResult->num_rows > 0)
-        ? $countResult->fetch_assoc()['total']
-        : 0;
+        //total songs by identifier
+        $countSql = "SELECT COUNT(*) AS total FROM Songs WHERE song_identifier = '$identifier'";
+        $countResult = $this->conn->query($countSql);
+        $total = ($countResult && $countResult->num_rows > 0)
+            ? $countResult->fetch_assoc()['total']
+            : 0;
 
-    // Fetch songs
-    $sql = "SELECT 
+        // Fetch songs
+        $sql = "SELECT 
                 Songs.id, Songs.title, Songs.duration, Songs.path,  Songs.plays,
                 albums.artworkPath,
                 artists.name AS artistName,
@@ -233,23 +230,23 @@ class Music extends DBConnection
             ORDER BY Songs.id DESC
             LIMIT $offset, $limit";
 
-    $result = $this->conn->query($sql);
+        $result = $this->conn->query($sql);
 
-    $songs = [];
-    if ($result && $result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $songs[] = $row;
+        $songs = [];
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $songs[] = $row;
+            }
         }
-    }
 
-    return [
-        'songs' => $songs,
-        'total' => $total,
-        'limit' => $limit,
-        'page' => $page,
-        'pages' => ceil($total / $limit)
-    ];
-}
+        return [
+            'songs' => $songs,
+            'total' => $total,
+            'limit' => $limit,
+            'page' => $page,
+            'pages' => ceil($total / $limit)
+        ];
+    }
 
 
 
@@ -358,25 +355,172 @@ class Music extends DBConnection
 
 
 
-    public function getAllAlbum()
+    public function getAllAlbum($page = 1, $limit = 3)
     {
-        $sql = "SELECT albums.*, artists.name AS artistName, genres.name AS genreName FROM albums
-       JOIN artists ON albums.artist = artists.id
-       JOIN genres ON albums.genre = genres.id
-    ";
+        $offset = ($page - 1) * $limit;
+
+        // Count total albums
+        $countSql = "SELECT COUNT(*) AS total FROM albums";
+        $countResult = $this->conn->query($countSql);
+        $total = ($countResult && $countResult->num_rows > 0)
+            ? $countResult->fetch_assoc()['total']
+            : 0;
+
+        // Fetch albums with pagination
+        $sql = "SELECT albums.*, 
+                   artists.name AS artistName, 
+                   genres.name AS genreName 
+            FROM albums
+            JOIN artists ON albums.artist = artists.id
+            JOIN genres ON albums.genre = genres.id
+            ORDER BY albums.id DESC
+            LIMIT $offset, $limit";
 
         $result = $this->conn->query($sql);
 
+        $albums = [];
         if ($result && $result->num_rows > 0) {
-            $artists = [];
             while ($row = $result->fetch_assoc()) {
-                $artists[] = $row;
+                $albums[] = $row;
             }
-            return $artists;
         }
 
-        return [];
+        return [
+            'albums' => $albums,
+            'total' => $total,
+            'limit' => $limit,
+            'page' => $page,
+            'pages' => ceil($total / $limit)
+        ];
     }
+
+    //get album for admin
+    public function getAllAlbumForAdmin()
+    {
+        // Fetch albums without pagination
+        $sql = "SELECT albums.*, 
+                   artists.name AS artistName, 
+                   genres.name AS genreName 
+            FROM albums
+            JOIN artists ON albums.artist = artists.id
+            JOIN genres ON albums.genre = genres.id
+            ORDER BY albums.id DESC";
+
+        $result = $this->conn->query($sql);
+
+        $albums = [];
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $albums[] = $row;
+            }
+        }
+
+        return  $albums;
+    }
+    public function getAlbumById($id)
+    {
+        $stmt = $this->conn->prepare(" SELECT  albums.*, 
+            artists.name AS artistName, 
+            artists.bio AS artistBio, 
+            genres.name AS genreName
+        FROM albums
+        LEFT JOIN artists ON albums.artist = artists.id
+        LEFT JOIN genres ON albums.genre = genres.id
+        WHERE albums.id = ?
+        ORDER BY id DESC
+    ");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    public function getSongsByAlbumsForAbums($albumId)
+    {
+        $stmt = $this->conn->prepare(
+            "SELECT songs.*, artists.name AS artistName, genres.name AS genreName
+        FROM songs
+        LEFT JOIN artists ON songs.artist = artists.id
+        LEFT JOIN genres ON songs.genre = genres.id
+        WHERE songs.album = ?
+        ORDER BY songs.id DESC"
+        );
+        $stmt->bind_param("i", $albumId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+//get album teams and name 
+public function getAlbumTeam($albumId) {
+    $stmt = $this->conn->prepare("SELECT member_name, member_image FROM album_team WHERE album_id = ?");
+    $stmt->bind_param("i", $albumId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $team = [];
+    while ($row = $result->fetch_assoc()) {
+        $team[] = $row;
+    }
+
+    $stmt->close();
+    return $team;
+}
+
+
+
+
+
+
+
+    //  Fetch songs by album (with pagination)
+    public function getSongsByAlbum($albumId, $page = 1, $limit = 7)
+    {
+        $albumId = intval($albumId);
+        $offset = ($page - 1) * $limit;
+
+        // Count total songs in album
+        $countSql = "SELECT COUNT(*) AS total FROM Songs WHERE album = $albumId";
+        $countResult = $this->conn->query($countSql);
+        $total = ($countResult && $countResult->num_rows > 0)
+            ? $countResult->fetch_assoc()['total']
+            : 0;
+
+        // Fetch songs
+        $sql = "SELECT 
+                Songs.id, Songs.title, Songs.duration, Songs.path, Songs.plays,
+                albums.artworkPath,
+                artists.name AS artistName,
+                genres.name AS genreName
+            FROM Songs
+            JOIN albums ON Songs.album = albums.id
+            JOIN artists ON Songs.artist = artists.id
+            JOIN genres ON Songs.genre = genres.id
+            WHERE Songs.album = $albumId
+            ORDER BY Songs.id DESC
+            LIMIT $offset, $limit";
+
+        $result = $this->conn->query($sql);
+
+        $songs = [];
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $songs[] = $row;
+            }
+        }
+
+        return [
+            'songs' => $songs,
+            'total' => $total,
+            'limit' => $limit,
+            'page' => $page,
+            'pages' => ceil($total / $limit)
+        ];
+    }
+
+
+
+
 
     public function deleteAlbumByid($id)
     {
