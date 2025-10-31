@@ -184,7 +184,7 @@ include_once "../logout.php";
                             <div class="widget-content">
                                 <div class="account-box">
                                     <div class="info">
-                                        <h5 class="">Total song</h5>
+                                        <h5 class="">Total songs</h5>
                                         <p class="inv-balance"><?= $_total ?></p>
                                     </div>
 

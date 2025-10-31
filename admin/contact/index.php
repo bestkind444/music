@@ -13,10 +13,21 @@ include "../../classes/DBConnection.php";
 include "../../classes/Music.php";
 $db = new DBConnection();
 $conn = $db->conn;
-
-
-
 include_once "../logout.php";
+
+if(isset($_GET['read']) && is_numeric($_GET['read'])){
+  if(!empty($_GET['read'])){
+    $id = $conn->real_escape_string($_GET['read']);
+    $query = $conn->query("UPDATE contact_us SET statue = 'read' WHERE id = $id");
+    if ($query) {
+        // echo "<script>alert('message marked as read')</script>";
+        header("location: ./");
+    }
+  }
+
+
+
+}
 
 
 
@@ -2416,13 +2427,17 @@ include_once "../logout.php";
                                                             aria-controls="default-ordering" rowspan="1" colspan="1"
                                                             aria-label="ACCOUNT TYPE: activate to sort column ascending"
                                                             style="width: 127.641px;">MESSAGE</th>
+                                                            <th class="sorting" tabindex="0"
+                                                            aria-controls="default-ordering" rowspan="1" colspan="1"
+                                                            aria-label="ACCOUNT TYPE: activate to sort column ascending"
+                                                            style="width: 127.641px;">ACTION</th>
 
 
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php
-                                                $query_fetch = "SELECT * FROM contact_us";
+                                                $query_fetch = "SELECT * FROM contact_us WHERE statue = 'unread'";
                                                 $query = $conn->query($query_fetch);
                                                 $count = 0;
 
@@ -2435,6 +2450,10 @@ include_once "../logout.php";
                                                     <td><?= $message['email']?></td>
                                                     <td><?= $message['telephone']?></td>
                                                     <td><?= $message['content']?></td>
+                                                    <td>
+                                                        <a style="background-color: green; padding: 4px 5px; text-decoration: none; color: white;" href="?read=<?= $message['id']?>">Mark as Read</a>
+                
+                                                    </td>
 
 
 

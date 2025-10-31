@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!isset( $_SESSION['admin_id'])) {
+if (!isset($_SESSION['admin_id'])) {
     header("location: ../");
     exit;
 }
@@ -59,6 +59,7 @@ $genres = $conn->query("SELECT id, name FROM genres");
     <link href="../source/assets/css/components/custom-sweetalert.css" rel="stylesheet" type="text/css">
     <script src="../source/plugins/sweetalerts/promise-polyfill.js"></script>
     <script src="../source/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="../../dist/css/lightbox.css">
 
     <style type="text/css">
         .apexcharts-canvas {
@@ -2415,7 +2416,7 @@ $genres = $conn->query("SELECT id, name FROM genres");
 
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label>Album Artwork</label>
+                                <label>Album Picture</label>
                                 <input type="file" name="album" class="form-control" required>
                             </div>
                         </div>
@@ -2520,7 +2521,9 @@ $genres = $conn->query("SELECT id, name FROM genres");
                                                         <td><?= htmlspecialchars($album['artistName']) ?></td>
                                                         <td><?= htmlspecialchars($album['genreName']) ?></td>
                                                         <td>
-                                                            <img height="100" width="100" style="border-radius: 50%;" src="<?= htmlspecialchars('../../' . $album['artworkPath']) ?>" alt="">
+                                                            <a href="<?= htmlspecialchars('../../' . $album['artworkPath']) ?>" data-lightbox="team-gallery" data-title="<?= htmlspecialchars($album['title']) ?>">
+                                                                <img height="100" width="100" style="border-radius: 50%;" src="<?= htmlspecialchars('../../' . $album['artworkPath']) ?>" alt="">
+                                                            </a>
                                                         </td>
                                                         <td><?= htmlspecialchars($date) ?></td>
                                                         <td>
@@ -2687,6 +2690,9 @@ $genres = $conn->query("SELECT id, name FROM genres");
 
         <script src="../source/plugins/sweetalerts/sweetalert2.min.js"></script>
         <script src="../source/plugins/sweetalerts/custom-sweetalert.js"></script>
+
+
+        <script src="../../dist/js/lightbox.js"></script>
         <script>
             var ss = $(".basic").select2({
                 tags: true,
