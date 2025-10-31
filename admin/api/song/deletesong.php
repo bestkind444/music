@@ -1,4 +1,12 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset( $_SESSION['admin_id'])) {
+    header("location: ../../");
+    exit;
+}
 header("Content-Type: application/json");
 
 require_once '../../../classes/Music.php';

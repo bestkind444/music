@@ -1,14 +1,14 @@
 <?php
 
-// if (session_status() === PHP_SESSION_NONE) {
-//     session_start();
-// }
-// include("../../server/connection.php");
-// if (!isset($_SESSION['admin_id'])) {
-//     header("location: ../");
-//     exit;
-// }
-// ob_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset( $_SESSION['admin_id'])) {
+    header("location: ../");
+    exit;
+}
+include_once "../logout.php";
 
 // Fetchinclude_once "../../../classes/DBConnection.php";
 include_once "../../classes/Music.php";

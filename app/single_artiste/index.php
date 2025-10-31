@@ -41,7 +41,11 @@
   <!--// Header \\-->
 
 
-
+<style>
+		* {
+			filter: none !important;
+		}
+	</style>
 
     <style>
       li figure {

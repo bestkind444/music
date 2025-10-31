@@ -1,15 +1,12 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-// if (session_status() === PHP_SESSION_NONE) {
-//     session_start();
-// }
-// include("../../server/connection.php");
-// if (!isset($_SESSION['admin_id'])) {
-//     header("location: ../");
-//     exit;
-// }
-// ob_start();
-
+if (!isset( $_SESSION['admin_id'])) {
+    header("location: ../");
+    exit;
+}
 // Fetch dropdown options
 include_once "../../classes/Music.php";
 
@@ -20,7 +17,7 @@ $artists = $conn->query("SELECT id, name FROM artists");
 $albums = $conn->query("SELECT id, title FROM albums");
 $genres = $conn->query("SELECT id, name FROM genres");
 
-
+include_once "../logout.php";
 ?>
 <html lang="en">
 

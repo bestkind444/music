@@ -7,19 +7,19 @@
       <div class="row">
         <div class="col-md-7">
           <ul class="wm-strip-options">
-            <li><a href="/music_industry/app/"><i class="flaticon-photo"></i> Albums</a></li>
-            <li><a href="/music_industry/app/"><i class="flaticon-multimedia"></i> Artists</a></li>
-            <li><a href="/music_industry/app/"><i class="flaticon-silhouette"></i> Releases</a></li>
-            <li><a href="/music_industry/app/"><i class="flaticon-sound"></i> Music Festivals</a></li>
-            <li><a href="/music_industry/app/"><i class="flaticon-video"></i> Music Videos</a></li>
+            <li><a href="/music_industry/app/album/"><i class="flaticon-photo"></i> Albums</a></li>
+            <li><a href="/music_industry/app/artiste/"><i class="flaticon-multimedia"></i> Artists</a></li>
+            <li><a href="/music_industry/app/naija/"><i class="flaticon-silhouette"></i>Niaja Music</a></li>
+            <li><a href="/music_industry/app/gospel/"><i class="flaticon-sound"></i> Gospel Music </a></li>
+            <li><a href="/music_industry/app/djmix/"><i class="flaticon-video"></i> Dj Mix</a></li>
           </ul>
         </div>
 
         <div class="col-md-5">
           <div class="wm-right-section">
-            <a class="wm-text-cart" href="#"><i class="flaticon-tool"></i> <span>0 items</span></a>
+            <!-- <a class="wm-text-cart" href="#"><i class="flaticon-tool"></i> <span>0 items</span></a> -->
 
-            <div class="wm-cart-box">
+            <!-- <div class="wm-cart-box">
               <h2>3 items in the cart</h2>
               <ul>
                 <li>
@@ -54,13 +54,13 @@
               <div class="wm-cart-link">
                 <a href="#" class="wm-cartbox-btn"><i class="flaticon-tool"></i> checkout</a>
               </div>
-            </div>
+            </div> -->
 
-            <form class="wm-search">
+            <!-- <form class="wm-search">
               <i class="flaticon-search"></i>
               <input type="text" placeholder="Search...">
               <input type="submit" value="">
-            </form>
+            </form> -->
           </div>
         </div>
       </div>
@@ -92,9 +92,9 @@
 
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="/music_industry/app/">Home</a></li>
+                <li ><a href="/music_industry/app/">Home</a></li>
                 <!-- <li><a href="/music_industry/app/event/">Events</a></li> -->
-                <li><a href="/music_industry/app/abulm/">Albums</a></li>
+                <li><a href="/music_industry/app/album/">Albums</a></li>
                 <li><a href="/music_industry/app/contact/">Contact us</a></li>
                 <li><a href="/music_industry/app/artiste/">All Artist</a></li>
 

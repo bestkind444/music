@@ -33,7 +33,7 @@
 <body>
 
 	<!--// Main Wrapper \\-->
-	<div class="wm-main-wrapper">
+	<!-- <div class="wm-main-wrapper">
 		<div class="muscibeat-loading-section">
 			<div class="line-scale-pulse-out">
 				<div></div>
@@ -42,144 +42,204 @@
 				<div></div>
 				<div></div>
 			</div>
+		</div> -->
+
+	<!--// Header \\-->
+	<?php include "../include/header.php"  ?>
+	<!--// Header \\-->
+
+	<!--// Mini HEader \\-->
+	<div class="wm-mini-header">
+		<span class="wm-black-transparent"></span>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="wm-page-heading">
+						<h1>Contact Us</h1>
+						<p>Check out our Contact Us</p>
+					</div>
+					<div class="clearfix"></div>
+					<ul class="wm-breadcrumb">
+						<li><a href="../">Home</a></li>
+						<li>Contact Us</li>
+					</ul>
+				</div>
+			</div>
 		</div>
+	</div>
+	<!--// Mini HEader \\-->
 
-		<!--// Header \\-->
-		<?php include "../include/header.php"  ?>
-		<!--// Header \\-->
-
-		<!--// Mini HEader \\-->
-		<div class="wm-mini-header">
-			<span class="wm-black-transparent"></span>
+	<!--// Main Content \\-->
+	<div class="wm-main-content">
+		<!--// Main Section \\-->
+		<div class="wm-main-section wm-contact-us-services">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="wm-page-heading">
-							<h1>Contact Us</h1>
-							<p>Check out our Contact Us</p>
+						<div class="wm-contact-us-info">
+							<ul class="row">
+								<li class="col-md-3">
+									<a href="contact-us-two.html"><i class="fa fa-home"></i></a>
+									<p>417 Hall Street Reno, NV 89503</p>
+								</li>
+								<li class="col-md-3">
+									<a href="contact-us-two.html"><i class="fa fa-phone"></i></a>
+									<p>(012) 345-6789</p>
+								</li>
+								<li class="col-md-3">
+									<a href="contact-us-two.html"><i class="fa fa-print"></i></a>
+									<p>(472) 555-7362</p>
+								</li>
+								<li class="col-md-3">
+									<a href="contact-us-two.html"><i class="flaticon-symbol"></i></a>
+									<p>info@musicbeat.com</p>
+								</li>
+							</ul>
 						</div>
-						<div class="clearfix"></div>
-						<ul class="wm-breadcrumb">
-							<li><a href="../">Home</a></li>
-							<li>Contact Us</li>
-						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--// Mini HEader \\-->
-
-		<!--// Main Content \\-->
-		<div class="wm-main-content">
-			<!--// Main Section \\-->
-			<div class="wm-main-section wm-contact-us-services">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="wm-contact-us-info">
-								<ul class="row">
-									<li class="col-md-3">
-										<a href="contact-us-two.html"><i class="fa fa-home"></i></a>
-										<p>417 Hall Street Reno, NV 89503</p>
+		<div class="wm-main-section">
+			<div class="wm-contact-us-map-full">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8069790.435797271!2d8.6707713!3d9.0338725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1761734368358!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+		</div>
+		<div class="wm-main-section wm-contactus-form-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="wm-contactus-title">
+							<h2>Contact Us Today</h2>
+						</div>
+						<div class="wm-contact-us-form-section">
+							<form id="form">
+								<ul>
+									<li class="full">
+										<input type="text" placeholder="your fullname" name="fullname">
 									</li>
-									<li class="col-md-3">
-										<a href="contact-us-two.html"><i class="fa fa-phone"></i></a>
-										<p>(012) 345-6789</p>
+									<li>
+										<input type="text" name="email" placeholder="your email">
 									</li>
-									<li class="col-md-3">
-										<a href="contact-us-two.html"><i class="fa fa-print"></i></a>
-										<p>(472) 555-7362</p>
+									<li>
+										<input type="text" name="telephone" placeholder="your phone number">
 									</li>
-									<li class="col-md-3">
-										<a href="contact-us-two.html"><i class="flaticon-symbol"></i></a>
-										<p>info@musicbeat.com</p>
+									<li class="full">
+										<textarea name="content" placeholder="Your Message..."></textarea>
+									</li>
+									<li class="full">
+										<input type="submit" value="send">
 									</li>
 								</ul>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="wm-main-section">
-				<div class="wm-contact-us-map-full">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8069790.435797271!2d8.6707713!3d9.0338725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1761734368358!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-				</div>
-			</div>
-			<div class="wm-main-section wm-contactus-form-bg">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="wm-contactus-title">
-								<h2>Contact Us Today</h2>
-							</div>
-							<div class="wm-contact-us-form-section">
-								<form>
-									<ul>
-										<li class="full">
-											<input type="text" onfocus="if(this.value =='Your Name') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Your Name'; }" value="Your Name">
-										</li>
-										<li>
-											<input type="text" onfocus="if(this.value =='Your E-mail') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Your E-mail'; }" value="Your E-mail">
-										</li>
-										<li>
-											<input type="text" onfocus="if(this.value =='Your Phone Number') { this.value = ''; }" onblur="if(this.value == '') { this.value ='Your Phone Number'; }" value="Your Phone Number">
-										</li>
-										<li class="full">
-											<textarea name="send" placeholder="Your Message..."></textarea>
-										</li>
-										<li class="full">
-											<input type="submit" value="send">
-										</li>
-									</ul>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--// Main Section \\-->
 		</div>
-		<!--// Main Content \\-->
+		<!--// Main Section \\-->
+	</div>
+	<!--// Main Content \\-->
 
-		<!--// Footer \\-->
-		<footer id="wm-footer" class="footer-two">
 
-			<!--// Footer Widget \\-->
-			<div class="wm-footer-widgets">
-				<div class="container">
-					<div class="row">
-						<aside class="col-md-12 widget widget_contact text-center">
-							<div class="wm-footer-widget-title">
-								<h2>🌍 Share Your Sound with the World</h2>
-							</div>
+	<style>
+		* {
+			filter: none !important;
+		}
+	</style>
 
-							<p class="lead">
-								Are you an upcoming artist with amazing tracks waiting to be heard?
-								We believe every talent deserves a global stage. <br>
-								Join our music community and let your sound travel across borders —
-								from Nigeria to New York, from your studio to the world!
-							</p>
 
-							<p>
-								Contact us today to upload your songs, albums, or instrumentals.
-								Our platform helps you get discovered, grow your audience, and connect with music lovers worldwide.
-							</p>
+	<script>
+		function sweatAlert(icon, title, text) {
+			Swal.fire({
+				icon: icon,
+				title: title,
+				text: text
+			})
 
-							<p class="mt-4">
-								💬 Have questions? Reach out to our support team anytime — we’ll help you get started in minutes!
-							</p>
-						</aside>
-					</div>
+		}
+
+		const form = document.getElementById("form");
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			try {
+				const formData = new FormData(e.target);
+				const response = await fetch("contact.php", {
+					method: 'POST',
+					body: formData
+
+				})
+
+				if (!response.ok) {
+					throw new Error(response.statusText);
+				}
+
+				const data = await response.json();
+				if (data.status === "success") {
+					sweatAlert("Tips", "success", data.message);
+				} else {
+					sweatAlert("Tips", "error", data.message);
+				}
+
+
+			} catch (error) {
+				console.log(error);
+				sweatAlert("Tips", "error", error.message)
+			}
+
+
+		})
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+	<!--// Footer \\-->
+	<footer id="wm-footer" class="footer-two">
+
+		<!--// Footer Widget \\-->
+		<div class="wm-footer-widgets">
+			<div class="container">
+				<div class="row">
+					<aside class="col-md-12 widget widget_contact text-center">
+						<div class="wm-footer-widget-title">
+							<h2>🌍 Share Your Sound with the World</h2>
+						</div>
+
+						<p class="lead">
+							Are you an upcoming artist with amazing tracks waiting to be heard?
+							We believe every talent deserves a global stage. <br>
+							Join our music community and let your sound travel across borders —
+							from Nigeria to New York, from your studio to the world!
+						</p>
+
+						<p>
+							Contact us today to upload your songs, albums, or instrumentals.
+							Our platform helps you get discovered, grow your audience, and connect with music lovers worldwide.
+						</p>
+
+						<p class="mt-4">
+							💬 Have questions? Reach out to our support team anytime — we’ll help you get started in minutes!
+						</p>
+					</aside>
 				</div>
 			</div>
+		</div>
 
-			
-	</div>
-	<!--// Footer Widget \\-->
 
-	<!--// Footer Bottom Section \\-->
-	<?php include "../include/footer.php"  ?>
-	<!--// Footer Bottom Section \\-->
+		</div>
+		<!--// Footer Widget \\-->
+
+		<!--// Footer Bottom Section \\-->
+		<?php include "../include/footer.php"  ?>
+		<!--// Footer Bottom Section \\-->
 
 
 
@@ -188,7 +248,7 @@
 
 	</div>
 	<!--// Main Wrapper \\-->
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- jQuery (necessary for JavaScript plugins) -->
 	<script type="text/javascript" src="../asset/script/jquery.js"></script>
 	<script type="text/javascript" src="../asset/script/modernizr.js"></script>

@@ -1,12 +1,24 @@
 <?php
+include_once "../../classes/DBConnection.php";
+$db = new DBConnection();
+$conn = $db->conn;
 
-// include("../../server/connection.php");
-// if (!isset($_SESSION['admin_name'])) {
-//     header("location: ../");
-// }
-// include('../../server/authorization/admin/index.php');
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['admin_id'])) {
+    header("location: ../");
+    exit;
+}
+
+include_once "../logout.php";
+
+
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,15 +110,26 @@
                             <div class="widget-heading">
                                 <h6 class="">Statistics</h6>
                             </div>
+                            <?php
+                            $countSql = "SELECT COUNT(*) AS total_artiste FROM artists";
+                            $count_Result = $conn->query($countSql);
+                            $total = ($count_Result && $count_Result->num_rows > 0)
+                                ? $count_Result->fetch_assoc()['total_artiste']
+                                : 0;
 
 
-                          
+
+
+                            ?>
+
+
+
 
                             <div class="w-chart">
                                 <div class="w-chart-section">
                                     <div class="w-detail">
                                         <p class="w-title">Total Artiste</p>
-                                        <p class="w-stats"></p>
+                                        <p class="w-stats"><?= $total ?></p>
                                     </div>
                                     <div class="w-chart-render-one">
                                         <div id="total-users"></div>
@@ -114,21 +137,45 @@
                                 </div>
 
 
+
+
+                                <?php
+                                $count_gospel = "SELECT COUNT(*) AS total_gospel FROM songs WHERE song_identifier = 'gospel'";
+                                $_countResult = $conn->query($count_gospel);
+                                $gospel = ($_countResult && $_countResult->num_rows > 0)
+                                    ? $_countResult->fetch_assoc()['total_gospel']
+                                    : 0;
+
+
+
+
+                                ?>
+
+
                                 <div class="w-chart-section">
                                     <div class="w-detail">
-                                        <p class="w-title">Total songs</p>
-                                        <p class="w-stats">00 </p>
+                                        <p class="w-title">Total gospel songs</p>
+                                        <p class="w-stats"><?= $gospel ?></p>
                                     </div>
                                     <div class="w-chart-render-one">
                                         <div id="paid-visits"></div>
                                     </div>
                                 </div>
+
+
+
+
+
                             </div>
                         </div>
                     </div>
 
                     <?php
-               
+                    $count_songs = "SELECT COUNT(*) AS total_songs FROM songs";
+                    $countResult = $conn->query($count_songs);
+                    $_total = ($countResult && $countResult->num_rows > 0)
+                        ? $countResult->fetch_assoc()['total_songs']
+                        : 0;
 
                     ?>
 
@@ -137,8 +184,8 @@
                             <div class="widget-content">
                                 <div class="account-box">
                                     <div class="info">
-                                        <h5 class="">Total Gospel song</h5>
-                                        <p class="inv-balance">00</p>
+                                        <h5 class="">Total song</h5>
+                                        <p class="inv-balance"><?= $_total ?></p>
                                     </div>
 
                                 </div>
@@ -146,13 +193,53 @@
                         </div>
                     </div>
 
+                    <?php
+                    $count_djmx = "SELECT COUNT(*) AS total_djmix FROM songs WHERE song_identifier = 'djmix'";
+                    $_countResult_dj = $conn->query($count_djmx);
+                    $djmix = ($_countResult_dj && $_countResult_dj->num_rows > 0)
+                        ? $_countResult_dj->fetch_assoc()['total_djmix']
+                        : 0;
+
+
+
+
+                    ?>
+
+
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+                        <div class="widget widget-account-invoice-two">
+                            <div class="widget-content">
+                                <div class="account-box">
+                                    <div class="info">
+                                        <h5 class="">Total Dj mix</h5>
+                                        <p class="inv-balance"><?= $djmix ?></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <?php
+                    $count_highlife = "SELECT COUNT(*) AS total_highlife FROM songs WHERE song_identifier = 'highlife'";
+                    $_countResult_life = $conn->query($count_highlife);
+                    $highlife = ($_countResult_life &&  $_countResult_life->num_rows > 0)
+                        ? $_countResult_life->fetch_assoc()['total_highlife']
+                        : 0;
+
+
+
+
+                    ?>
+
                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
                         <div class="widget widget-card-four">
                             <div class="widget-content">
                                 <div class="w-content">
                                     <div class="w-info">
                                         <h6 class="value"></h6>
-                                        <p class="">Total High Life music</p>
+                                        <p class="">Total High Life music: <?= $highlife ?></p>
                                     </div>
                                     <div class="">
                                         <div class="w-icon">
@@ -215,7 +302,9 @@
 
                 <div class="footer-wrapper">
                     <div class="footer-section f-section-1">
-                        <p class="">Copyright © <script>document.write(new Date().getFullYear())</script><a  href="/">Music</a>, All rights
+                        <p class="">Copyright © <script>
+                                document.write(new Date().getFullYear())
+                            </script><a href="/">Music</a>, All rights
                             reserved.</p>
                     </div>
                     <div class="footer-section f-section-2">

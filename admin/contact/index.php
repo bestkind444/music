@@ -1,4 +1,5 @@
 <?php
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -7,12 +8,14 @@ if (!isset( $_SESSION['admin_id'])) {
     header("location: ../");
     exit;
 }
-include_once "../../classes/DBConnection.php";
-include_once "../../classes/Music.php";
 
-
+include "../../classes/DBConnection.php";
+include "../../classes/Music.php";
 $db = new DBConnection();
 $conn = $db->conn;
+
+
+
 include_once "../logout.php";
 
 
@@ -2362,7 +2365,11 @@ include_once "../logout.php";
         <?php include("../includes/sidebar.php")  ?>
         <!--  END SIDEBAR  -->
 
-
+<style>
+   *{
+				filter: none !important;
+			} 
+</style>
 
 
         <!--  BEGIN CONTENT AREA  -->
@@ -2371,206 +2378,91 @@ include_once "../logout.php";
 
                 <div class="page-header">
                     <div class="page-title">
-                        <h3>UPLOAD ARTISTE</h3>
+                        <h3>All Messages</h3>
                     </div>
                 </div>
 
-                <form method="post" id="form" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-4">
-                                <label for="">Artiste Name</label>
-                                <input type="text" value="" name="artistename" class="form-control" id=""
-                                    placeholder="Artiste Name" required="" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-4">
-                                <label for="">Artiste Bio</label>
-                                <textarea  class="form-control" name="bio" id=""></textarea>
-                            </div>
-                        </div>
+                <div class="row layout-top-spacing" id="cancel-row">
 
-                        <div class="col-md-12">
-                            <div class="form-group mb-4">
-                                <label for="">Artiste Profile</label>
-                                <input type="file" value="" name="file" class="form-control" id=""
-                                    placeholder="profile " required="" autocomplete="off">
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                        <div class="widget-content widget-content-area br-6">
+                            <div class="table-responsive mb-4 mt-4">
+                                <div id="default-ordering_wrapper"
+                                    class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table id="default-ordering" class="table table-hover dataTable no-footer"
+                                                style="width:100%" role="grid" aria-describedby="default-ordering_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0"
+                                                            aria-controls="default-ordering" rowspan="1" colspan="1"
+                                                            aria-sort="ascending"
+                                                            aria-label="S/N: activate to sort column descending"
+                                                            style="width: 36.3594px;">S/N</th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-ordering" rowspan="1" colspan="1"
+                                                            aria-label="NAME: activate to sort column ascending"
+                                                            style="width: 168.25px;">NAME</th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-ordering" rowspan="1" colspan="1"
+                                                            aria-label="ACCOUNT NO: activate to sort column ascending"
+                                                            style="width: 111.922px;">EMAIL</th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-ordering" rowspan="1" colspan="1"
+                                                            aria-label="ACCOUNT CURRENCY: activate to sort column ascending"
+                                                            style="width: 173.875px;">TELEPHONE</th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="default-ordering" rowspan="1" colspan="1"
+                                                            aria-label="ACCOUNT TYPE: activate to sort column ascending"
+                                                            style="width: 127.641px;">MESSAGE</th>
 
 
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <button style="margin-bottom: 10px !important;" name="register" type="submit" class="btn btn-primary mt-3">Upload Artiste</button>
-
-                        </div>
-                </form>
-
-                <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
-                    <div class="widget-content widget-content-area br-6">
-                        <div class="table-responsive mb-4 mt-4">
-                            <div id="default-ordering_wrapper"
-                                class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <table id="default-ordering" class="table table-hover dataTable no-footer"
-                                            style="width:100%" role="grid" aria-describedby="default-ordering_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0"
-                                                        aria-controls="default-ordering" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label="S/N: activate to sort column descending"
-                                                        style="width: 36.3594px;">S/N</th>
-                                                    <th class="sorting" tabindex="0"
-                                                        aria-controls="default-ordering" rowspan="1" colspan="1"
-                                                        aria-label="NAME: activate to sort column ascending"
-                                                        style="width: 168.25px;">ARTISTE NAME</th>
-                                                    <th class="sorting" tabindex="0"
-                                                        aria-controls="default-ordering" rowspan="1" colspan="1"
-                                                        aria-label="ACCOUNT NO: activate to sort column ascending"
-                                                        style="width: 111.922px;">CREATED ON</th>
-                                                    <th class="sorting" tabindex="0"
-                                                        aria-controls="default-ordering" rowspan="1" colspan="1"
-                                                        aria-label="ACCOUNT NO: activate to sort column ascending"
-                                                        style="width: 111.922px;">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
                                                 <?php
-                                                if (class_exists("DBConnection") && class_exists("Music")) {
-                                                    include_once "../../classes/DBConnection.php";
-                                                    include_once "../../classes/Music.php";
-                                                }
-
-                                                $db = new DBConnection();
-                                                $conn = $db->conn;
-                                                $songs = new Music();
-                                                $all_artist = $songs->getAllArtistsForAdmin();
+                                                $query_fetch = "SELECT * FROM contact_us";
+                                                $query = $conn->query($query_fetch);
                                                 $count = 0;
 
-                                                foreach ($all_artist as $artist) {
-                                                    $count++;
-                                                    $date = date("D-M-Y H:i:s", strtotime($artist['created_at']));;
+                                                if ($query->num_rows > 0) {
+                                                    
+                                                   while($message = $query->fetch_assoc()){ $count++  ?>
+                                                   <tr>
+                                                       <td><?=$count?></td>
+                                                    <td><?= $message['name']?></td>
+                                                    <td><?= $message['email']?></td>
+                                                    <td><?= $message['telephone']?></td>
+                                                    <td><?= $message['content']?></td>
+
+
+
+
+
+                                                   </tr>
+
+
+                                                   <?php }
+
+                                                }
+
+
+
                                                 ?>
-                                                    <tr>
-                                                        <td><?= $count ?></td>
-                                                        <td><?= htmlspecialchars($artist['name']) ?></td>
-                                                        <td><?= htmlspecialchars($date) ?></td>
-                                                        <td>
-                                                            <a class="del-btn" data-delete="<?= htmlspecialchars($artist['id']) ?>" style="background-color: green; padding: 6px 10px; color: white;" href="">Delete</a>
-                                                            <!-- <a href="">Delete</a> -->
-                                                        </td>
-                                                    </tr>
-                                                <?php }
 
 
+                                                </tbody>
 
-
-
-
-
-                                                ?>
-
-
-
-
-
-
-                                            </tbody>
-
-                                        </table>
+                                            </table>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-
-
-
-
-                <script>
-                    function sweatAlert(icon, title, text) {
-                        Swal.fire({
-                            icon: icon,
-                            title: title,
-                            text: text
-                        })
-
-                    }
-
-                    const form = document.getElementById("form");
-                    form.addEventListener("submit", async (e) => {
-                        e.preventDefault();
-                        try {
-                            const formData = new FormData(e.target);
-                            const response = await fetch("../api/artiste/addartiste.php", {
-                                method: 'POST',
-                                body: formData
-
-                            })
-
-                            if (!response.ok) {
-                                throw new Error("failed to insert Artiste " + response.statusText);
-                            }
-
-                            const data = await response.json();
-                            if (data.status === "success") {
-                                sweatAlert("Tips", "success", data.message);
-                            } else {
-                                sweatAlert("Tips", "error", data.message);
-                            }
-                            setTimeout(() => {
-                                // window.location.reload();
-                            }, 1500);
-
-
-                        } catch (error) {
-                            console.log(error);
-                            sweatAlert("Tips", "error", error.message)
-                        }
-
-
-                    })
-
-                    //Delete
-                    document.querySelectorAll(".del-btn").forEach(btn => {
-                        btn.addEventListener("click", async (e) => {
-                            e.preventDefault();
-                            try {
-
-                                const del_id = e.target.dataset.delete;
-                                const response = await fetch("../api/artiste/deleteartise.php?delete_id=" + encodeURIComponent(del_id))
-
-                                if (!response.ok) {
-                                    throw new Error("failed to insert product " + response.statusText);
-                                }
-
-                                const data = await response.json();
-                                if (data.status === "success") {
-                                    sweatAlert("Tips", "success", data.message);
-                                } else {
-                                    sweatAlert("Tips", "error", data.message);
-                                }
-                                setTimeout(() => {
-                                    window.location.reload();
-                                }, 1500);
-
-
-                            } catch (error) {
-                                console.log(error);
-                                sweatAlert("Tips", "error", error.message)
-                            }
-                        })
-                    })
-                </script>
+                     </div>
 
                 <div class="footer-wrapper">
                     <div class="footer-section f-section-1">
@@ -2580,7 +2472,7 @@ include_once "../logout.php";
                             reserved.</p>
                     </div>
                     <div class="footer-section f-section-2">
-                        <p class="">music<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        <p class="">Music <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
                                 <path
@@ -2592,12 +2484,12 @@ include_once "../logout.php";
             </div>
             <!--  END CONTENT AREA  -->
 
-!
+
         </div>
         <!-- END MAIN CONTAINER -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="../source/bootstrap/js/popper.min.js"></script>
         <script src="../source/bootstrap/js/bootstrap.min.js"></script>
         <script src="../source/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>

@@ -91,6 +91,11 @@
 					max-height: 200px;
 				}
 			}
+
+		* {
+			filter: none !important;
+		}
+	
 		</style>
 		<!--// Main Section \\-->
 		<div class="wm-main-section wm-event-list-full">

@@ -1,18 +1,19 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset( $_SESSION['admin_id'])) {
+    header("location: ../");
+    exit;
+}
+
 include "../../classes/DBConnection.php";
 include "../../classes/Music.php";
 $db = new DBConnection();
 $conn = $db->conn;
 
-
-
-// if (session_status() === PHP_SESSION_NONE) {
-//     session_start();
-// }
-// include("../../server/connection.php");
-// if (!isset($_SESSION['admin_id'])) {
-//     header("location: ../");
-// }
+include_once "../logout.php";
 
 
 

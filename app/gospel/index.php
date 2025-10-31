@@ -282,6 +282,11 @@
 					transition: width 0.2s linear;
 
 				}
+			
+		* {
+			filter: none !important;
+		}
+
 			</style>
 
 		</footer>

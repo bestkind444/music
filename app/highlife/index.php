@@ -68,7 +68,11 @@
 		</div>
 	</div>
 	
-
+<style>
+		* {
+			filter: none !important;
+		}
+	</style>
 
 		<style>
 			li figure {
