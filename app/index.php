@@ -25,6 +25,7 @@
  <style>
 		* {
 			filter: none !important;
+      opacity: 1 !important;
 		}
 	</style>
 </head>
@@ -98,35 +99,35 @@
                 <ul class="row">
                   <li class="col-md-4">
                     <figure>
-                      <a href="./abulm/"><img
+                      <a href="./album/"><img
                           src="./asset/extra-images/album-recent-1.jpg"
                           alt="" /></a>
                       <figcaption>
                         <div class="wm-album-caption">
                           <h2>
-                            <a href="./abulm/">Acoustic, Music, Soul</a>
+                            <a href="./album/">Acoustic, Music, Soul</a>
                           </h2>
                           <ul>
                             <li><span>Available on:</span></li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-icon-2406"></a>
                             </li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-technology-2"></a>
                             </li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-shape"></a>
                             </li>
                           </ul>
                           <div class="clearfix"></div>
                           <a
-                            href="./abulm/"
+                            href="./album/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-tool"></i></a>
                           <a
                             href="album-single-post.html"
@@ -137,7 +138,7 @@
                     <div class="wm-recent-releases-text">
                       <time datetime="2008-02-14 20:00"></time>
                       <h2>
-                        <a href="./abulm/"> Click see all to get All Album</a>
+                        <a href="./album/"> Click see all to get All Album</a>
                       </h2>
                     </div>
                   </li>
@@ -149,32 +150,32 @@
                       <figcaption>
                         <div class="wm-album-caption">
                           <h2>
-                            <a href="./abulm/">Acoustic, Music, Soul</a>
+                            <a href="./album/">Acoustic, Music, Soul</a>
                           </h2>
                           <ul>
                             <li><span>Available on:</span></li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-icon-2406"></a>
                             </li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-technology-2"></a>
                             </li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-shape"></a>
                             </li>
                           </ul>
                           <div class="clearfix"></div>
                           <a
-                            href="./abulm/"
+                            href="./album/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-tool"></i></a>
                           <a
-                            href="./abulm/"
+                            href="./album/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-link"></i></a>
                         </div>
                       </figcaption>
@@ -182,44 +183,44 @@
                     <div class="wm-recent-releases-text">
                       <time datetime="2008-02-14 20:00"></time>
                       <h2>
-                        <a href="./abulm/"> Click see all to get All Album</a>
+                        <a href="./album/"> Click see all to get All Album</a>
                       </h2>
                     </div>
                   </li>
                   <li class="col-md-4">
                     <figure>
-                      <a href="./abulm/"><img
+                      <a href="./album/"><img
                           src="./asset/extra-images/album-recent-3.jpg"
                           alt="" /></a>
                       <figcaption>
                         <div class="wm-album-caption">
                           <h2>
-                            <a href="./abulm/">Acoustic, Music, Soul</a>
+                            <a href="./album/">Acoustic, Music, Soul</a>
                           </h2>
                           <ul>
                             <li><span>Available on:</span></li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-icon-2406"></a>
                             </li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-technology-2"></a>
                             </li>
                             <li>
                               <a
-                                href="./abulm/"
+                                href="./album/"
                                 class="flaticon-shape"></a>
                             </li>
                           </ul>
                           <div class="clearfix"></div>
                           <a
-                            href="./abulm/"
+                            href="./album/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-tool"></i></a>
                           <a
-                            href="./abulm/"
+                            href="./album/"
                             class="wm-album-linkbtn wm-color"><i class="flaticon-link"></i></a>
                         </div>
                       </figcaption>
@@ -227,14 +228,14 @@
                     <div class="wm-recent-releases-text">
                       <time datetime="2008-02-14 20:00"></time>
                       <h2>
-                        <a href="./abulm/"> Click see all to get All Album.</a>
+                        <a href="./album/"> Click see all to get All Album.</a>
                       </h2>
                     </div>
                   </li>
                 </ul>
               </div>
               <div class="wm-seeall-btn">
-                <a href="abulm/" class="wm-bgcolor">See All</a>
+                <a href="album/" class="wm-bgcolor">See All</a>
               </div>
             </div>
           </div>
